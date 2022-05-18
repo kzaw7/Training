@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+div{
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    .borderexample {
+ border-style:solid;
+ border-color:#287EC7;
+ }
+}
+</style>
+</head>
+<body>
+
+    <div style ="position:relative; left:20px; ">
+        <p> Team A</p>
+    </div>
+  
+    <div style ="position:relative; left:140px; bottom:100px;">
+        <p> Team B</p>
+    </div>
+    
+    <div style ="position:relative; left:260px; bottom:200px;">
+        <p> Team C</p>
+    </div>
+    
+    <div style ="position:relative; left:380px; bottom:300px;">
+        <p> Team D</p>
+    </div>
+    <img id="img1" src="F:\Revature/image1.jpg" width="50" draggable="true" ondragstart="drag(event) "/>
+    <img id="img2" src="F:\Revature/image2.jpg" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img3" src="F:\Revature/image3.jpg" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img4" src="F:\Revature/image4.jpg" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img5" src="F:\Revature/image5.png" width="50" draggable="true" ondragstart="drag(event)" bottom:200px;/>
+    <img id="img6" src="F:\Revature/image6.jpg" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img7" src="F:\Revature/twitter.png" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img8" src="F:\Revature/image8.png" width="50" draggable="true" ondragstart="drag(event)"/>
+    <img id="img9" src="F:\Revature/image9.jpg" width="50" draggable="true" ondragstart="drag(event)"/>
+<script>
+    function drag(event){
+            var id = event.target.id;
+            event.dataTransfer.setData('text', id);
+        }
+    </script>
+
+</body>
+
