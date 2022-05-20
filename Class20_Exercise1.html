@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+div{
+    width: 200px;
+    height: 300px;
+    border: 2px solid red;
+    .borderexample {
+ border-style:solid;
+ border-color:#287EC7;
+ }
+}
+</style>
+
+<body>
+
+    <div id ="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style ="position:relative; left:20px; ">
+        <p> Team A</p>
+        <img id="img1" src="F:\Training/image1.jpg" width="70" draggable="true" ondragstart="drag(event) "/>
+        
+      
+        <img id="img2" src="F:\Training/image2.jpg" width="70" draggable="true" ondragstart="drag(event)"/>
+    </div> 
+     
+
+
+
+    <div id ="div2" ondrop="drop(event)" ondragover="allowDrop(event)" style ="position:relative; left:250px; bottom:300px;">
+        <p> Team B</p>
+        <img id="img3" src="F:\Training/image3.jpg" width="70" draggable="true" ondragstart="drag(event)"/>
+       
+        <img id="img4" src="F:\Training/image4.jpg" width="70" draggable="true" ondragstart="drag(event)"/>
+     
+    </div>
+    
+
+
+    <div id ="div3" ondrop="drop(event)" ondragover="allowDrop(event)" style ="position:relative; left:20px; ">
+        <p> Team C</p>
+        <img id="img5" src="F:\Training/image5.png" width="70" draggable="true" ondragstart="drag(event)" />
+      
+        <img id="img6" src="F:\Training/image6.jpg" width="70" draggable="true" ondragstart="drag(event)"/>
+     
+    </div>
+
+
+
+    <div id ="div4" ondrop="drop(event)" ondragover="allowDrop(event)" style ="position:relative; left:250px; bottom:300px;">
+        <p> Team D</p>
+        <img id="img7" src="F:\Training/twitter.png" width="70" draggable="true" ondragstart="drag(event)"/>
+  
+        <img id="img8" src="F:\Training/image8.png" width="70" draggable="true" ondragstart="drag(event)"/>
+     
+        <img id="img9" src="F:\Training/image9.jpg" width="70" draggable="true" ondragstart="drag(event)"/>
+    </div>
+
+  
+
+
+    <script>
+   
+   function allowDrop(event){
+            event.preventDefault()
+            console.log(event.target)
+            
+        }
+
+        function drag(event){
+            var id = event.target.id;
+            event.dataTransfer.setData('text', id);
+        }
+
+        function drop(event){
+            var id = event.dataTransfer.getData('text');
+            event.target.appendChild(document.getElementById(id));
+        }
+    </script>
+</body>
+</html>
+
