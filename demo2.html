@@ -7,23 +7,50 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <form>
-          Text: <input type="text" name="" id="" ><br />
-          Email: <input type="email" /> <br />
-          Password: <input type=" password" name="" id="" /><br />
-          Phone: <input type="number" name="" id="" /><br />
-          DateTime : <input type="datetime-local" name="" id="" /><br />
-        Date : <input type="date" name="" id="" /><br />
-        Time : <input type="time" name="" id="" /><br />
-        Month: <input type="month" name="" id="" /><br />
-        Week : <input type="week" name="" id="" /><br />
-        Color: <input type="color" name="" id="" /><br />
-        Range: <input type="range" name="" id="" /><br />
+    <button onclick="getData()">Get Data</button>
+    <div id="result"></div>
+    <script>
+      function getData() {
+        // create XMLHttpRequest object
+        var request = new XMLHttpRequest();
 
-        <input type="submit" value="submit" />
-        <input type="reset" value="Reset" />
-      </form>
-    </div>
+        // instantiate the request object
+        request.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+        // defining event listner for readyStateChange event
+        request.onreadystatechange = function () {
+          // check if the request is completed and was successfull
+          if (this.readyState == 4 && this.status == 200) {
+            // inserting the response from the server into the html element
+            var response = this.responseText;
+            var data = JSON.parse(response);
+            var text = "";
+            text += `<table border='1'>
+                      <thead>
+                          <tr>
+                              <th>Id</th>
+                              <th>UserId</th>
+                              <th>Title</th>
+                              <th>Body</th>
+                          </tr>
+                      </thead>
+                      <tbody>`;
+            for (let i = 0; i < data.length; i++) {
+              text += `
+                                  <tr>
+                                      <td>${data[i].id}</td>
+                                      <td>${data[i].userId}</td>
+                                      <td>${data[i].title}</td>
+                                      <td>${data[i].body}</td>
+                                  </tr>
+                              `;
+            }
+            text += `</tbody>
+                  </table>`;
+            document.getElementById("result").innerHTML = text;
+          }
+        };
+        request.send()
+      }
+    </script>
   </body>
 </html>

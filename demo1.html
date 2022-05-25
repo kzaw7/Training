@@ -7,37 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div>
-        navbar
-    </div>
-    <div>
-        header
-    </div>
-    <div>
-        sidebar
-    </div>
-    <div>
-        main content
-    </div>
-    <div>
-        footer
-    </div> -->
+    <marquee>Hello...Khine </marquee>
+    <button onclick="getData()">Get Data</button>
+    <h1 id="result"></h1>
 
-    <nav>
+    <script>
+        function getData(){
+            // create XMLHttpRequest object
+            var request = new XMLHttpRequest();
+            
+            // inistantiate the request object
+            // open(method_type, url, async)
+            request.open('GET', 'data.txt', true)
 
-    </nav>
-    <header>
+            // define event listener for readyStateChange event
+            request.onreadystatechange = function(){
+                // check request is completed and was successfull
+                if(this.readyState==4 && this.status==200){
+                    // inserting the response from the server into the html element
+                    document.getElementById('result').innerHTML = this.responseText
+                }
+            }
 
-    </header>
-    <aside>
-
-    </aside>
-    <article>
-
-    </article>
-    <footer>
-        
-    </footer>
-
+            // sending the request to the server
+            request.send();
+        }
+    </script>
 </body>
 </html>
